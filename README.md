@@ -1,8 +1,7 @@
 # myDocker
-docker
-# [第一天](#page1)
-# [第二天](#page2)
-# [第三天](#page3)
+[第一天](#page1)
+[第二天](#page2)
+[第三天](#page3)
 ## <span id = "page1">第一天</span>
 ### 简单命令的使用
 ```
