@@ -41,6 +41,7 @@ docker start myjava1
 docker ps 运行状态的容器
 docker ps -a 所有的docker容器
 docker exec -it f9249587a4c6 /bin/bash
+docker rm 容器名 删除停止的容器
 ```
 ## <h2 id = "page3">第三天</h2>
 ```
