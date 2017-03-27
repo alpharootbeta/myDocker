@@ -38,7 +38,8 @@ docker 交互
 ```
 docker create --name myjava1 -it java /bin/bash
 docker start myjava1
-docker ps -a
+docker ps 运行状态的容器
+docker ps -a 所有的docker容器
 docker exec -it f9249587a4c6 /bin/bash
 ```
 ## <h2 id = "page3">第三天</h2>
