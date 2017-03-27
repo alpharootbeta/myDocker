@@ -2,6 +2,7 @@
 [第一天](#page1)
 [第二天](#page2)
 [第三天](#page3)
+[第四天](#page4)
 ## <h2 id = "page1">第一天</h2>
 ### 简单命令的使用
 ```
@@ -57,7 +58,7 @@ docker run -it myjava1 ls
 ```
 核对镜像信息
 ```
-docker inspect myjava1
+ docker inspect myjava1
 ```
 build文件
 ```
@@ -93,3 +94,58 @@ build success
 ```
 docker images myjava1/build
 ```
+## <h2 id = "page4">第四天</h2>
+### 在容器中部署静态网站-nginx部署流程
+#### 创建映射80端口的交互式容器
+```
+docker pull ubuntu
+docker run -it -p 80 --name=html ubuntu /bin/bash
+docker start html
+docker ps
+docker exec -it xxxx  /bin/bash
+```
+#### 安装nginx
+```
+apt-get update 防止出现 E: Unable to locate package
+apt-get install nginx
+```
+#### 安装vim
+```
+apt-get install vim
+```
+#### 创建静态页面
+```
+mkdir -p /var/html
+cd /var/html
+vim index.html
+<html>
+<head>my html</head>
+<body>this is my first website</body>
+</html>
+
+```
+#### 修改nginx配置文件
+```
+whereis nginx
+cd /etc/nginx/sites-enabled
+vi default
+root /var/html/index.html
+
+```
+#### 运行nginx
+```
+nginx
+ps -ef 查看nginx服务是否成功
+```
+#### 验证网站访问
+```
+docker port html
+docker top html
+curl http://127.0.0.1:端口号
+或者
+docker inspect 9ab9ab55e2b7
+curl http://172.17.0.2   容器对应的ip地址
+
+```
+
+
