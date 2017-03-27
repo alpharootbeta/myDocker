@@ -14,7 +14,8 @@ docker images 本地装载镜像
 ### 命令行交互
 ```
 docker run -it（交互） java（镜像名） java -version（命令）
-docker run -it java ps
+docker run -it java ps   ctrl+p ctrl+q 后台执行
+docker attach 容器名 进入容器
 docker run -it java uname
 docker run java  ip addr（docker ip） 主机ping通
 docker run java env(环境变量)
@@ -42,6 +43,7 @@ docker ps 运行状态的容器
 docker ps -a 所有的docker容器
 docker exec -it f9249587a4c6 /bin/bash
 docker rm 容器名 删除停止的容器
+docker logs -f -t -tail 
 ```
 ## <h2 id = "page3">第三天</h2>
 ```
