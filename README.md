@@ -129,7 +129,7 @@ vim index.html
 whereis nginx
 cd /etc/nginx/sites-enabled
 vi default
-root /var/html/index.html
+root /var/www/html/index.html
 
 ```
 #### 运行nginx
