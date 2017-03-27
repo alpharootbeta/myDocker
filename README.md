@@ -24,7 +24,7 @@ docker run -d（后台） image command   (docker exec进入容器 docker attach
 ## <h2 id = "page2">第二天</h2>
 ### 创建 使用容器
 ```
-docker create start stop pause unpause
+docker create start stop kill pause unpause
 docker create -it --name=myjava java java version
 docker ps -a 终止状态的容器
 docker create --name mysqlsrv1 -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 mysql
@@ -41,9 +41,10 @@ docker create --name myjava1 -it java /bin/bash
 docker start myjava1
 docker ps 运行状态的容器
 docker ps -a 所有的docker容器
-docker exec -it f9249587a4c6 /bin/bash
+docker exec -it f9249587a4c6 /bin/bash 在运行的容器 启动新进程
 docker rm 容器名 删除停止的容器
 docker logs -f -t -tail 
+docker top 容器名
 ```
 ## <h2 id = "page3">第三天</h2>
 ```
