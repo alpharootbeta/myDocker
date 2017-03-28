@@ -183,6 +183,7 @@ docker rm -v data_new
 ```
 docker run --volumes-from 容器名 -v ${pwd}(本地地址):/backup（容器地址） ubuntu
 tar cvf /backup/XXX.tar  容器文件目录
+docker run --volumes-from data -v /home/backup:/backup ubuntu tar cvf /backup/backup.tar /home
 ```
 数据还原
 ```
