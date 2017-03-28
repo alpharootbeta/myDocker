@@ -3,6 +3,7 @@
 [第二天](#page2)
 [第三天](#page3)
 [第四天](#page4)
+[第五天](#page5)
 ## <h2 id = "page1">第一天</h2>
 ### 简单命令的使用
 ```
@@ -44,6 +45,9 @@ docker ps 运行状态的容器
 docker ps -a 所有的docker容器
 docker exec -it f9249587a4c6 /bin/bash 在运行的容器 启动新进程
 docker rm 容器名 删除停止的容器
+docker rmi 镜像名：标签名 
+docker rmi $(docker images -q)删除所有镜像
+docker rmi $(docker images -q ubuntu)删除ubuntu下的所有镜像
 docker logs -f -t -tail 
 docker top 容器名
 ```
@@ -147,5 +151,42 @@ docker inspect 9ab9ab55e2b7
 curl http://172.17.0.2   容器对应的ip地址
 
 ```
-
+## <h2 id = "page5">第五天</h2>
+### 数据卷
+docker run -it -v 本机目录：docker容器目录  镜像名 /bin/bash
+添加权限ro只读
+```
+docker run -v -it 本机目录：docker容器目录:ro --name 容器名 镜像名 /bin/bash
+```
+使用dockerfile
+```
+from ubuntu:1404
+VOLUME[/data1,/data2]
+docker bulit -t docker/data
+docker run --name data_test -it docker/data
+ls
+```
+### 数据卷容器
+实现不同容器间的数据共享
+```
+docker run --volumes-from 容器名
+docker run -it --name data_test ubuntu
+docker run -it --name data_new --volumes-from data_test ubuntu /bin/bash
+```
+删除数据卷
+```
+docker rm -v 数据卷名
+docker rm -v data_new
+```
+### 进行数据管理
+数据备份
+```
+docker run --volumes-from 容器名 -v ${pwd}(本地地址):/backup（容器地址） ubuntu
+tar cvf /backup/XXX.tar  容器文件目录
+```
+数据还原
+```
+docker run --volumes-from 容器名 -v ${pwd}(本地地址):/backup（容器地址） ubuntu
+tar xvf /backup/XXX.tar  容器文件目录
+```
 
