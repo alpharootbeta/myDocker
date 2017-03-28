@@ -4,6 +4,7 @@
 [第三天](#page3)
 [第四天](#page4)
 [第五天](#page5)
+参考博客 http://www.open-open.com/lib/view/open1423703640748.html
 ## <h2 id = "page1">第一天</h2>
 ### 简单命令的使用
 ```
