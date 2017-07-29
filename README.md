@@ -215,4 +215,21 @@ docker push lovecanopy/containtername
 否则
 docker push tag yujie/java lovecanopy/java
 ```
+由于docker push速度受限，所以要用阿里云加速器
+https://cr.console.aliyun.com/#/accelerator
+```
+ubuntu
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+	  "registry-mirrors": ["https://7dl2qyuy.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+windows
+在dockerEE软件 设置的daemon中添加https://7dl2qyuy.mirror.aliyuncs.com
+
+```
 
