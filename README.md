@@ -4,6 +4,7 @@
 [第三天](#page3)
 [第四天](#page4)
 [第五天](#page5)
+[第六天](#page6)
 ## <h2 id = "page1">第一天</h2>
 ### 简单命令的使用
 ```
@@ -189,5 +190,27 @@ docker run --volumes-from data -v /home/backup:/backup ubuntu tar cvf /backup/ba
 ```
 docker run --volumes-from 容器名 -v ${pwd}(本地地址):/backup（容器地址） ubuntu
 tar xvf /backup/XXX.tar  容器文件目录
+```
+
+## <h2 id = "page6">第六天</h2>
+### 发布镜像
+首先保存对镜像的修改
+docker commit 容器的id  要保存的容器名
+```
+docker commit 698 yujie/java
+```
+发布自己的镜像
+```
+登陆
+docker login --username username --password password
+
+```
+推送到Docker Hub上的镜像必须按照下面的格式进行：<username>/<image_name>,使用docker images命令查看本地的docker镜像，如果当初命名的镜像名字不是按照上面的规则进行的，则可以使用docker tag 添加添加自己的名字。
+假设我注册的docker hub的账户名为lovecanopy
+则：
+```
+docker push lovecanopy/containtername
+否则
+docker push tag yujie/java lovecanopy/java
 ```
 
